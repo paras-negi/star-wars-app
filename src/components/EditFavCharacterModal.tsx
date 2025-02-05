@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Input from "./Input";
 
 interface EditFavCharacterModalProps {
   editingCharacter: any;
@@ -58,7 +59,7 @@ export default function EditFavCharacterModal({
                 onChange={(e) => {
                   setFormData({ ...formData, gender: e.target.value });
                 }}
-                className={`mt-1 block w-full border-2 rounded-lg border-[#E2E2E2]-500 p-2`}
+                className={`mt-1 w-full border-2 rounded-lg border-[#757575]-500 p-2`}
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -68,13 +69,13 @@ export default function EditFavCharacterModal({
 
             <label className="block">
               <span className="text-gray-700">Height:</span>
-              <input
-                type="number"
-                name="height"
+              <Input
+                inputType="number"
+                inputName="height"
                 value={formData.height}
-                className={`mt-1 block w-full border-2 rounded-lg ${
+                className={`mt-1 w-full border-2 rounded-lg ${
                   error.height ? "border-[#E11900]-500" : "border-[#E2E2E2]-500"
-                } p-2`}
+                } focus:border-[#757575]-500 p-2`}
                 onChange={(e) => {
                   if (error.height) {
                     setError({ ...error, height: "" });
@@ -82,7 +83,7 @@ export default function EditFavCharacterModal({
                   setFormData({ ...formData, height: e.target.value });
                 }}
               />
-              <p className="mt-2 text-color-[#E11900]">{error.height}</p>
+              <p className="mt-2 text-[#E11900]">{error.height}</p>
             </label>
           </div>
 
