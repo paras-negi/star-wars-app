@@ -59,7 +59,7 @@ export default function EditFavCharacterModal({
                 onChange={(e) => {
                   setFormData({ ...formData, gender: e.target.value });
                 }}
-                className={`mt-1 w-full border-2 rounded-lg border-[#757575]-500 p-2`}
+                className={`mt-1 w-full border outline-none rounded-lg border-gray-300 p-2`}
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -73,9 +73,9 @@ export default function EditFavCharacterModal({
                 inputType="number"
                 inputName="height"
                 value={formData.height}
-                className={`mt-1 w-full border-2 rounded-lg ${
-                  error.height ? "border-[#E11900]-500" : "border-[#E2E2E2]-500"
-                } focus:border-[#757575]-500 p-2`}
+                className={`mt-1 w-full border rounded-lg outline-none ${
+                  error.height ? "border-red-500" : "border-gray-300"
+                } focus:border-gray-800 p-2`}
                 onChange={(e) => {
                   if (error.height) {
                     setError({ ...error, height: "" });
@@ -83,7 +83,7 @@ export default function EditFavCharacterModal({
                   setFormData({ ...formData, height: e.target.value });
                 }}
               />
-              <p className="mt-2 text-[#E11900]">{error.height}</p>
+              <p className="mt-2 text-[#E11900] text-xs">{error.height}</p>
             </label>
           </div>
 
@@ -96,7 +96,10 @@ export default function EditFavCharacterModal({
             </button>
             <button
               type="button"
-              onClick={() => setEditingCharacter(null)}
+              onClick={() => {
+                setError({ ...error, height: "", gender: "" });
+                setEditingCharacter(null);
+              }}
               className="px-2 py-2 bg-white-500 text-green-500 rounded w-1/2 border-green-500 border-2"
             >
               Cancel
