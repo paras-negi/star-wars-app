@@ -27,8 +27,6 @@ export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     );
   };
 
-  console.log({favorites});
-
   return (
     <FavoritesContext.Provider value={{ favorites, addFavorite, removeFavorite, editFavorite }}>
       {children}

@@ -8,7 +8,6 @@
  */
 export const fetchCharacters = async (page: number) => {
   try {
-    console.log({page})
     const response = await fetch(`https://swapi.dev/api/people/?page=${page || 1}`);
     if (!response.ok) throw new Error('Failed to fetch characters');
     const data = await response.json();
